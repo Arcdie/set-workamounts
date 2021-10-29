@@ -1,0 +1,10 @@
+{
+  "name": "set-workamounts",
+  "version": "1.0.0",
+  "desctiption": "helper for cscalp",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "xml2js": "^0.4.23"
+  }
+}
