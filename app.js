@@ -80,7 +80,7 @@ const start = async () => {
   const workAmounts = [];
 
   for (let i = 1; i < 6; i += 1) {
-    workAmount.push(Math.floor(depositForCalculate * i));
+    workAmounts.push(Math.floor(depositForCalculate * i));
   }
 
   await Promise.all(exchangeInfo.symbols.map(async symbol => {
@@ -98,7 +98,6 @@ const start = async () => {
       return null;
     }
 
-    const result = [];
     const stepSize = parseFloat(symbol.filters[2].stepSize);
     const instrumentPrice = parseFloat(instrumentPriceDoc.price);
 
@@ -178,8 +177,8 @@ const askQuestion = (nameStep) => {
         return askQuestion('depositForCalculate');
       }
 
-      if (!isNumber(userAnswer)
-        || Number.isNaN(userAnswer)
+      if (!userAnswer
+        || Number.isNaN(parseFloat(userAnswer))
         || userAnswer < 0) {
           console.log('Невалидные данные');
           return askQuestion('depositForCalculate');
